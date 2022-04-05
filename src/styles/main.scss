@@ -1,0 +1,104 @@
+body{
+    border: 1px solid;
+  
+}
+.hidden {
+    // visibility: hidden;
+    display: none !important;
+}
+.container {
+    border: 1px solid;
+    max-width: 1000px;
+    height: 200px;
+
+}
+.fild__con {
+    margin: 0 auto;
+    position: relative;
+}
+.fild{
+    display: none;
+    &__ball{
+        width: 100px;
+        height: 100px;
+        border: 1px solid;
+    }
+    &__target{
+        width: 100px;
+        height: 100px;
+        border: 1px solid blue;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    
+}
+.slider {
+    width: 500px;
+    height: 100px;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    &__line {
+        width: 400px;
+        height: 5px;
+        background-color: rgb(114, 114, 238);
+        position: relative;
+    }
+    &__runner {
+        width: 10px;
+        height: 20px;
+        background-color: rgb(0, 22, 95);
+        position: absolute;
+        top: -7px;
+        // left: 200px;
+    }
+}
+
+@mixin hero {
+    width: 50px;
+    height: 50px;
+}
+
+.super-hero {
+    box-suppress:hide;
+    display: none;
+    margin: 0 auto;
+    border: 1px solid red;
+    display: flex;
+    &__fild{
+        width: 500px;
+        height: 300px;
+        background-color: grey;
+    }
+    &__box{
+        border: 1px solid;
+    }
+    &__01{
+        background-color: rgb(0, 102, 255);
+        @include hero()
+    }
+    &__02{
+        background-color: rgb(238, 255, 0);
+        @include hero()
+    }
+    &__03{
+        background-color: rgb(255, 0, 179);
+        @include hero()
+    }
+}
+
+.scroll{
+    width: 600px;
+    height: 200px;
+    border: 1px solid;
+    overflow-y: scroll;
+    padding: 24px;
+    &__item{
+        width: 100px;
+        height: 200px;
+    }
+}
+
