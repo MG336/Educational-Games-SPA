@@ -302,4 +302,38 @@ function createForm(){
     document.forms.formOne.formSelect.selectedIndex = 2
     console.log(option)
 }
-createForm()
+// createForm()
+
+function game(){
+    const imgBox = document.querySelector('.game__imgBox');
+    const gameContainer = document.querySelector('.game');
+    var target;
+    gameContainer.addEventListener('pointerdown',(e)=>{
+        if(e.target.matches('.game__imgBox')){
+            console.log('imgBox')
+            target = e.target;
+            target.style.position = 'absolute';
+            target.setPointerCapture(e.pointerId);
+            console.log(111111)
+            target.addEventListener('gotpointercapture',(e)=>{
+                console.log(33333);
+                target.style.background='red';
+            })
+            target.addEventListener('pointermove',imgMove);
+            target.addEventListener ('lostpointercapture',removeMove)
+            
+        }
+            
+    })
+    function imgMove(e){
+        console.log(e.clientY)
+        console.log(7777)
+        target.style.top = e.clientY + 'px';
+        target.style.left = e.clientX + 'px';
+    }
+    function removeMove(){
+        target.removeEventListener('pointermove',imgMove)
+    }
+        
+}
+game()
