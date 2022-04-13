@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
+    <!-- <link rel="stylesheet" href="styles/style.css"> -->
 </head>
 <body>
     <section class="fild hidden">
@@ -58,19 +59,32 @@
     </section>
     
     <section class="game">
-        <div class="game__fildOne"></div>
-        <div class="game__fildTwo"></div>
+        <div class="game__modal">
+            <div class="game__modalContant">
+                <span class="game__modalCloseIcon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                </span>
+                <span class="game__modalText"></span>
+            </div>
+        </div>
+        <div class="game__fruits">Фрукты</div>
+        <div class="game__vegetables">Овощи</div>
         <div class="game__images">
-            <div class="game__imgBox">
+            <div class="game__imgBox" data-type="fruit">
+                
                 <img class="game__img" src="#" alt="">
             </div>
-            <div class="game__imgBox">
+            <div class="game__imgBox" data-type="vegetable">
+                2222
                 <img class="game__img" src="#" alt="">
             </div>
-            <div class="game__imgBox">
+            <div class="game__imgBox" data-type="fruit">
+                3333
                 <img class="game__img" src="#" alt="">
             </div>
         </div>
+        <button class="game__btn" id="gameBtn" type="button">Сheck</button>
+        <button class="game__btn" id="gameBtnReset" type="button">Reset</button>
 
     </section>
 </body>

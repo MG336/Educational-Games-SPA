@@ -1,5 +1,6 @@
-import 'normalize.css'
+// import 'normalize.css'
 import './styles/main.scss';
+
 
 function dragDrop(){
     let ball = document.querySelector('.fild__ball');
@@ -304,36 +305,186 @@ function createForm(){
 }
 // createForm()
 
+//---------------GAME------------------------------
+
 function game(){
     const imgBox = document.querySelector('.game__imgBox');
     const gameContainer = document.querySelector('.game');
+    var shiftImg_Y;
+    var shiftImg_X;
+    var gameContainerY;
+    var gameContainerX;
     var target;
-    gameContainer.addEventListener('pointerdown',(e)=>{
+
+    let previousTarget;
+    let curentTarget;
+    
+    gameContainer.addEventListener('pointerdown',function(e){
         if(e.target.matches('.game__imgBox')){
-            console.log('imgBox')
             target = e.target;
-            target.style.position = 'absolute';
             target.setPointerCapture(e.pointerId);
-            console.log(111111)
-            target.addEventListener('gotpointercapture',(e)=>{
-                console.log(33333);
-                target.style.background='red';
+
+            target.addEventListener('gotpointercapture',function(){
+                this.style.background='red';
             })
-            target.addEventListener('pointermove',imgMove);
-            target.addEventListener ('lostpointercapture',removeMove)
             
+            
+            gameContainerY = gameContainer.getBoundingClientRect().top;
+            gameContainerX = gameContainer.getBoundingClientRect().left;
+
+            shiftImg_Y =  e.clientY - target.getBoundingClientRect().top;
+            shiftImg_X =  e.clientX - target.getBoundingClientRect().left;
+
+            target.addEventListener('pointermove',imgMove);
+            target.addEventListener ('lostpointercapture',removeMove);
+        }
+    })
+            
+    // gameContainer.addEventListener('pointerover',pointOver);
+    // gameContainer.addEventListener('pointerout',pointOut);
+           
+
+    function imgMove(e){
+        
+        if(!this.classList.contains('game__imgBox--position')){
+            this.classList.add('game__imgBox--position');
+        }
+        offsetImg(e.clientX, e.clientY, shiftImg_X, shiftImg_Y, target);
+        selectItemBelowImg(e);
+
+    }
+
+    function selectItemBelowImg(e){
+        e.target.hidden = true;
+        curentTarget = document.elementFromPoint(e.clientX, e.clientY);
+        if(curentTarget) curentTarget = curentTarget.closest('.game__images, .game__fruits, .game__vegetables');
+        
+        if (previousTarget != curentTarget){
+
+            if(previousTarget != null){
+                previousTarget.style.background = '';
+            }
+            previousTarget = curentTarget;
         }
             
-    })
-    function imgMove(e){
-        console.log(e.clientY)
-        console.log(7777)
-        target.style.top = e.clientY + 'px';
-        target.style.left = e.clientX + 'px';
+        if(curentTarget){
+            previousTarget.style.background = 'blue';
+        }
+
+        e.target.hidden = false;
     }
-    function removeMove(){
-        target.removeEventListener('pointermove',imgMove)
+        
+    function appendSelectItem(e){
+        if(curentTarget) curentTarget.append(e.target);
     }
+
+
+
+    function offsetImg(pageX,pageY,shiftX,shiftY,target){
+        target.style.left = (pageX - gameContainerX) - shiftX + 'px';
+        target.style.top = (pageY - gameContainerY) - shiftY + 'px';
+    }
+
+    
+    // function pointOver(e){
+    //     closestTarget = e.target.closest('.game__images, .game__fildTwo, .game__fildOne');
+    //     if(!closestTarget) return
+    //     closestTarget.style.background = 'yellow';
+    // }
+    
+    // function pointOut(e){
+    //     if(!closestTarget) return
+    //     closestTarget.style.background = '';
+    // }
+        
+        
+        
+  
+
+
+
+        
+
+        
+
+
+    function removeMove(e){
+        appendSelectItem(e)
+        this.classList.remove('game__imgBox--position');
+        this.style.top = '';
+        this.style.left = '';
+        this.removeEventListener('pointermove',imgMove)
+    }
+
+    
+
+    function checkResult(){
+        let btn = document.getElementById('gameBtn');
+        let btnReset = document.getElementById('gameBtnReset');
+
+        btn.addEventListener('click',() => {
+            let fruit = document.querySelector('.game__fruits');
+            let vegetable = document.querySelector('.game__vegetables');
+            let game__images = document.querySelector('.game__images');
+            
+            if(game__images.children.length != 0){
+                modalBox('notСompleted');
+            }else {
+                if(fruit.querySelector('[data-type=vegetable]')) {
+                    modalBox('lost')
+                    return
+                }
+                if(vegetable.querySelector('[data-type=fruit]')) {
+                    modalBox('lost')
+                    return
+                }
+                modalBox('win');
+            }
+            
+            console.log(!game__images.children);
+        })
+
+        btnReset.addEventListener('click',() => {
+            let gameImgBoxs = document.querySelectorAll('.game__imgBox');
+            let gameImages = document.querySelector('.game__images');
+
+            gameImages.innerHTML = '';
+            gameImages.append(...gameImgBoxs);
+        })  
+    }
+    
+    function modalBox(result){
+        const modal = document.querySelector('.game__modal');
+        const close = modal.querySelector('.game__modalCloseIcon'); 
+        const modalText = modal.querySelector('.game__modalText');
+
+        modal.classList.add('game__modal--show');
+
+        close.onclick = function(){
+            modal.classList.remove('game__modal--show');
+        }
+        console.log(modalText)
+        // if(win){
+        //     modalText.innerHTML = 'You Won';
+        // }if else()
+        // else {
+        //     modalText.innerHTML = 'You lost';
+        // }
+        switch(result){
+            case 'win':
+                modalText.innerHTML = 'You Won';
+                break;
+            case 'lost':
+                modalText.innerHTML = 'You lost';
+                break;
+            case 'notСompleted':
+                modalText.innerHTML = 'You have not placed all the objects';
+                break;
+        }
+    }
+    
+
+    checkResult()
         
 }
 game()
