@@ -1,0 +1,24 @@
+// Colors
+$color1:#A11D4C;
+$color2:#003084;
+$color3:#00BBFE;
+$color5:#6BB013;
+$color6:#FF7A00;
+$color7:#FCF700;
+$color8:#EEFCFF;
+
+@mixin frutAndVeg {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    min-height: 200px;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    align-content: start; 
+    padding: 8px;
+    gap: 8px;
+    border-radius: 33px;
+    border: 6px solid;
+    margin-top: 16px;
+    
+}

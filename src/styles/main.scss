@@ -1,155 +1,151 @@
 // @import 'fonts.scss';
 @import 'global.scss';
-
-*{
-    box-sizing: border-box;
-    font-family: 'Inter';
-}
-
-body{
-    border: 1px solid;
-  
-}
-.hidden {
-    // visibility: hidden;
-    display: none !important;
-}
-.container {
-    border: 1px solid;
-    max-width: 1000px;
-    height: 200px;
-
-}
-.fild__con {
-    margin: 0 auto;
-    position: relative;
-}
-.fild{
-    display: none;
-    &__ball{
-        width: 100px;
-        height: 100px;
-        border: 1px solid;
+@import 'vars.scss';
+@import 'fonts';
+@import 'reset.scss';
+.main {
+    background: linear-gradient(0deg, #4B8CFF 0%, #558DEE 0.01%, #E7F8FF 100%);
+    &__game{
+        margin: 0 auto;
     }
-    &__target{
-        width: 100px;
-        height: 100px;
-        border: 1px solid blue;
-        position: absolute;
-        top: 0;
-        right: 0;
-    }
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.noscroll{
+    overflow: hidden;
+}
+
+.header{
+    padding: 16px;
+    height: 640px;
+    background: no-repeat url('../images/bg/bg01.jpg');
+    background-size: cover;
+    // background-origin: content-box;
+    // background-image: url('../images/bg/bg01.jpg');
+    // background-position: -45% 0;
     
-}
-.slider {
-    width: 500px;
-    height: 100px;
-    background-color: aqua;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    &__line {
-        width: 400px;
-        height: 5px;
-        background-color: rgb(114, 114, 238);
-        position: relative;
+    
+    &__nav{
+        height: 48px;
+        background-color: $color2;
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 16px;
     }
-    &__runner {
-        width: 10px;
-        height: 20px;
-        background-color: rgb(0, 22, 95);
-        position: absolute;
-        top: -7px;
-        // left: 200px;
+        
+    &__bg{
+        
     }
-}
-
-@mixin hero {
-    width: 50px;
-    height: 50px;
-}
-
-.super-hero {
-    box-suppress:hide;
-    display: none;
-    margin: 0 auto;
-    border: 1px solid red;
-    display: flex;
-    &__fild{
-        width: 500px;
-        height: 300px;
-        background-color: grey;
+    &__icon{
+        fill: white;
     }
-    &__box{
-        border: 1px solid;
+    &__textBox{
+        padding: 24px 16px;
+        border-radius: 20px;
+        background-color: $color1;
     }
-    &__01{
-        background-color: rgb(0, 102, 255);
-        @include hero()
+    &__title{
+        font-size: 37px;
+        font-weight: 700;
+        margin: 0;
+        line-height: 90%;
+        text-transform: uppercase;
+        color: $color8;
+        text-shadow: 0px 2.65137px 2.65137px rgba(0, 0, 0, 0.39);
     }
-    &__02{
-        background-color: rgb(238, 255, 0);
-        @include hero()
-    }
-    &__03{
-        background-color: rgb(255, 0, 179);
-        @include hero()
+    &__con{
+        display: flex;
+        height: 100%;
+        align-items: center;
     }
 }
 
-.scroll{
-    width: 600px;
-    height: 200px;
-    border: 1px solid;
-    overflow-y: scroll;
-    padding: 24px;
-    &__item{
-        width: 100px;
-        height: 200px;
-    }
-}
 
-.game{
+.game {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap:10px;
-
-    border: 1px solid;
-    padding: 32px;
+    gap:16px;
     position: relative;
-    width: 500px;
-    margin: 100px auto;
+    max-width: 1100px;
+    font-family: 'Inter';
+    padding-top: 40px;
+    background-color: $color8;
+    padding: 40px 16px;
 
+    &__title{
+        grid-column: 1/3;
+        font-size: 65px;
+        margin: 0;
+        margin-bottom: 32px;
+        color: $color1;
+    }
+    &__task{
+        grid-column: 1/3;
+        background-color: #FCF700;
+        // height: 214px;
+        padding: 24px;
+        border-radius: 24px;
+        font-weight: 500;
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: $color2;
+
+    }
+    &__boxTitle{
+        font-size: 20px; 
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 50px;
+        &--color1{
+            color: $color6;
+        }
+        &--color2{
+            color: $color5;
+        }
+    }
     &__modal{
-        position: absolute;
+        position: fixed;
         background-color: rgb(0, 0, 0,0.4);
         width: 100%;
         height: 100%;
         display: none;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        overflow: hidden;
+        
     }
     &__modal--show{
         display: block;
     }
-    &__modalContant{
-        width: 300px;
-        height: 100px;
-        margin: 35% auto;
-        text-align: center;
-        position: relative;
-        z-index: 1;
-        display: flex;
-        // flex-direction: column;
-        // align-items: center;
-        // justify-content: center;
 
-        
+    &__modalContant{
+        width: 70vw;
+        top: 30vh;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+        display: flex; 
+        background-color: $color1;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 24px;
+        font-weight: 700;
+        box-shadow: 0px 5px 11px 6px rgba(0, 0, 0, 0.25);
+        border-radius: 14px;
+        color: $color8;
     }
+
     &__modalText{
         margin: 0 auto;
-        margin-top: 12%;
-        
+        font-size: 20px;
+        text-transform: uppercase;
+        background-color:$color1;
+        text-align: center;
     }   
 
 
@@ -158,38 +154,138 @@ body{
         float: right;
         padding: 4px;
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 4px;
+        right: 4px;
         z-index: 2;
+        // fill: rgb(255, 255, 255,0.4);
+        // fill: rgb(255, 255, 255, 0.4);
+        
     }
  
         
     &__fruits{
-        border: 2px solid green;
-        height: 200px;
+        @include frutAndVeg();
+        border-color:$color6;
     }
+
+ 
 
     &__vegetables{
-        border: 2px solid red;
-        height: 200px;
-
+        @include frutAndVeg();
+        border-color:$color5;
     }
+        
     &__images{
-        display: flex;
-        gap: 10px;
-        border: 2px solid;
-        height: 200px;
-        grid-column: 1/3;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
 
+        grid-template-rows: 1fr 1fr 1fr;
+        align-items: center;
+        justify-items: center;
+        
+        justify-content: center;
+        align-content: center;
+
+        grid-template-rows: auto auto;
+        gap: 16px;
+        border: 4px solid $color1; 
+        border-radius: 40px;
+        grid-column: 1/3;
+        
+        padding:40px 16px;
+        
     }
     &__imgBox{
-        width: 100px;
-        height: 100px;
-        border: 1px solid;
         &--position{
             position:absolute;
         } 
+        background: none;
+    }
+    &__img{
+        width:100%;
+        background: inherit;
+    }
+    &__glow{
+        box-shadow: inset 0px 4px 30px -9px $color7;
+    }
+    &__btn{
+        margin-top: 16px;
+        cursor: pointer;
+        &--l{
+            color: $color8;
+        }
+        &--r{
+            color: $color3;
+        }
     }
 }
+
+.footer {
+    background-color: $color2;
+    height: 88px;
+}
+
+
+@media (min-width: 767px){
+    .container{
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0;
+    }
+    .header {
+        height: 100vh;
+        // background-position: 0;
+        justify-content: flex-start;
+        justify-items: flex-start;
+        &__textBox{
+            width: 763px;
+            padding: 56px;
+            margin-top: 0;
+          
+
+        }
+        &__title{
+            font-size: 85px;
+        }
+        &__con{
+            display: flex;
+            height: 100%;
+
+            align-items: center;
+        }
+    }
+
+    .main{
+        &__game{
+            margin: 96px auto 96px;
+
+        }
+    }
+    .game{
+        padding: 155px 80px ;
+        border-radius: 47px;
+        box-shadow: 0px 4px 80px rgba(0, 0, 0, 0.25);
+        gap: 40px;
+        &__images{
+            
+            grid-template-columns: repeat(6,1fr);
+            grid-template-rows: repeat (1fr 1fr);
+            justify-items: center;
+        }
+        &__btn{
+            margin-top: 72px;
+        }
+        &__boxTitle{
+            font-size: 40px;
+        }
+        &__task{
+            padding: 48px;
+        }
+        &__modalContant{
+            max-width: 500px;
+        }
+    }
+}
+
 
       

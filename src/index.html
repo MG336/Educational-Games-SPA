@@ -8,85 +8,66 @@
     <!-- <link rel="stylesheet" href="styles/style.css"> -->
 </head>
 <body>
-    <section class="fild hidden">
-        <h1>Drag & drop</h1>
-        <div class="fild__con container">
-            <div class="fild__ball"></div>
-            <div class="fild__target"></div>
+    
+    <div class="wrapper">
+        <div class="header__nav">
+            <svg class="header__icon" width="26" viewBox="0 0 26 23" xmlns="http://www.w3.org/2000/svg">
+                <rect width="26" height="5" rx="2.5" />
+                <rect y="9" width="26" height="5" rx="2.5" />
+                <rect y="18" width="26" height="5" rx="2.5" />
+            </svg>
         </div>
         
-    </section>
-    <section class="slider hidden">
-        <div class="slider__line">
-            <div class="slider__runner">
-
+      
+    <header class="header">
+       
+        <div class="header__con container">
+       
+            <div class="header__textBox">
+                <h1 class="header__title">Educational games for children</h1>
             </div>
+            <div></div>
         </div>
-    </section>
-    
-    <section class="super-hero hidden">
-        <div class="super-hero__fild">
-
-        </div>
-        <div class="super-hero__box">
-            <div class="super-hero__01 hero" data-item></div>
-            <div class="super-hero__02 hero" data-item></div>
-            <div class="super-hero__03 hero" data-item></div>
-        </div>
-    </section>
-    <section class="scroll hidden">
-               <h1 class="scroll__title">
-                   Прокрути меня
-               </h1> 
-               <div class="scroll__item">
-
-               </div>
-    </section>
-
-    <section class="form">
-        <form class="form__formOne" name="formOne" action="">
-            <fieldset name="fieldSetOne">
-                <input name="fieldInputOne" value="1">
-            </fieldset>
-            <input name="one" value="1">
-            <select name="formSelect" id="" class="form__select">
-                <option value="apple">Яблоко</option>
-                <option value="pear">Груша</option>
-                <option value="banana">Банан</option>
-
-            </select>
-        </form>
-    </section>
-    
-    <section class="game">
-        <div class="game__modal">
-            <div class="game__modalContant">
-                <span class="game__modalCloseIcon">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-                </span>
-                <span class="game__modalText"></span>
+        <!-- <img class="header-bg" src="./images/bg/bg01.jpg" alt=""> -->
+    </header>
+    <main class="main">
+        <section class="game main__game">
+            <h2 class="game__title">Sorting</h2>
+            <div class="game__task">
+                <p class="basicText">Sort fruits and vegetables into boxes</p>
             </div>
-        </div>
-        <div class="game__fruits">Фрукты</div>
-        <div class="game__vegetables">Овощи</div>
-        <div class="game__images">
-            <div class="game__imgBox" data-type="fruit">
-                
-                <img class="game__img" src="#" alt="">
-            </div>
-            <div class="game__imgBox" data-type="vegetable">
-                2222
-                <img class="game__img" src="#" alt="">
-            </div>
-            <div class="game__imgBox" data-type="fruit">
-                3333
-                <img class="game__img" src="#" alt="">
-            </div>
-        </div>
-        <button class="game__btn" id="gameBtn" type="button">Сheck</button>
-        <button class="game__btn" id="gameBtnReset" type="button">Reset</button>
 
-    </section>
+            <div>
+                <span class="game__boxTitle game__boxTitle--color1">Fruits</span> 
+                <div class="game__fruits"></div>
+            </div>
+            <div>
+                <span class="game__boxTitle game__boxTitle--color2">Vegetables</span> 
+                <div class="game__vegetables"></div>
+            </div>
+            <div class="game__images">
+                <!-- <div class = "game__imgBox" -->
+            </div>
+            <button class="game__btn game__btn--l btn" id="gameBtn" type="button">Сheck</button>
+            <button class="game__btn game__btn--r btn btn--border" id="gameBtnReset" type="button">Reset</button>
+
+            <div class="game__modal">
+                <div class="game__modalContant">
+                    <span class="game__modalCloseIcon">
+                        <svg width="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 2L14 14M14 2L2 14" stroke="white" stroke-opacity="0.67" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                    </span>
+                    <span class="game__modalText"></span>
+                </div>
+            </div>
+      
+        </section>
+    </main>
+  
+    <footer class="footer"></footer>
+    </div>
+  
 </body>
-<script src="./index.js"></script>
+<!-- <script src="./index.js"></script> -->
 </html>

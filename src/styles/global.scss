@@ -1,5 +1,38 @@
-*{
-    box-sizing: border-box;
-    font-family: 'Inter';
-    background-color: rgb(163, 163, 163);
+@import 'vars.scss';
+body {
+    background: rgb(178, 178, 178);
+    margin: 0;
+}
+
+.btn {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background: $color1;
+    padding: 16px 0;
+    border-radius: 60px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    
+    &--border {
+        border: 2px solid $color3;
+        border-radius: 60px;
+        background: none;
+    }
+}
+    
+
+.container{
+    // padding: 16px;
+    max-width: 1100px;
+}
+
+@media (min-width: 767px){
+    .btn{
+        height: 108px;
+        font-size: 32px;
+    } 
 }
