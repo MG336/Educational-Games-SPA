@@ -4,68 +4,87 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Free interactive educational games for kids</title>
     <!-- <link rel="stylesheet" href="styles/style.css"> -->
 </head>
 <body>
     
     <div class="wrapper">
-        <div class="header__nav">
-            <svg class="header__icon" width="26" viewBox="0 0 26 23" xmlns="http://www.w3.org/2000/svg">
-                <rect width="26" height="5" rx="2.5" />
-                <rect y="9" width="26" height="5" rx="2.5" />
-                <rect y="18" width="26" height="5" rx="2.5" />
-            </svg>
+
+        <div class="header-nav">
+            <div class="header-nav__con">
+                <svg class="header-nav__icon" width="26" viewBox="0 0 26 23" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="26" height="5" rx="2.5" />
+                    <rect y="9" width="26" height="5" rx="2.5" />
+                    <rect y="18" width="26" height="5" rx="2.5" />
+                </svg>
+            </div>
+            <div class="header-nav__overlay">
+                <span class="header-nav__title">Games</span>
+                <ul class="header-nav__items">
+                    <li class="header-nav__item">
+                        <a class="header-nav__link" data-link="sorting">Sorting</a>
+                    </li>
+                    <li class="header-nav__item">
+                        <a class="header-nav__link" data-link="count">Count</a>
+                    </li>
+                    <li class="header-nav__item" >
+                        <a class="header-nav__link" data-link="addition">Addition</a>
+                    </li>
+                    <li class="header-nav__item">
+                        <a class="header-nav__link" data-link="subtraction">Subtraction</a>
+                    </li>
+                </ul>
+                <hr class="header-nav__line" data-link="donate">
+                <a class="header-nav__donate" href="#" data-link="Subtraction">Donate</a>
+            </div>
         </div>
-        
+                
+            
       
     <header class="header">
-       
         <div class="header__con container">
-       
             <div class="header__textBox">
-                <h1 class="header__title">Educational games for children</h1>
+                <h2 class="header__title">kidgamer</h2>
+                <h1 class="header__subtitle">Free educational games for kids</h1>
             </div>
-            <div></div>
         </div>
-        <!-- <img class="header-bg" src="./images/bg/bg01.jpg" alt=""> -->
     </header>
-    <main class="main">
-        <section class="game main__game">
-            <h2 class="game__title">Sorting</h2>
-            <div class="game__task">
-                <p class="basicText">Sort fruits and vegetables into boxes</p>
-            </div>
+                
 
-            <div>
-                <span class="game__boxTitle game__boxTitle--color1">Fruits</span> 
-                <div class="game__fruits"></div>
-            </div>
-            <div>
-                <span class="game__boxTitle game__boxTitle--color2">Vegetables</span> 
-                <div class="game__vegetables"></div>
-            </div>
-            <div class="game__images">
-                <!-- <div class = "game__imgBox" -->
-            </div>
-            <button class="game__btn game__btn--l btn" id="gameBtn" type="button">Сheck</button>
-            <button class="game__btn game__btn--r btn btn--border" id="gameBtnReset" type="button">Reset</button>
-
-            <div class="game__modal">
-                <div class="game__modalContant">
-                    <span class="game__modalCloseIcon">
-                        <svg width="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 2L14 14M14 2L2 14" stroke="white" stroke-opacity="0.67" stroke-width="3" stroke-linecap="round"/>
-                            </svg>
-                    </span>
-                    <span class="game__modalText"></span>
-                </div>
-            </div>
+    <nav class="nav">
+        <div class="nav__con container">
+            <ul class="nav__items">
+                <li class="nav__item">
+                    <a class="nav__link" data-link="sorting">Sorting</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" data-link="count">Count</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" data-link="addition">Addition</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" data-link="subtraction">Subtraction</a>
+                </li>
+            </ul>
+            <a class="nav__link nav__link--donate" data-link="donate">Donate</a>
+        </div>
+    </nav>
       
-        </section>
-    </main>
-  
-    <footer class="footer"></footer>
+
+        <main class="main"></main>
+        
+        <div class="message" id="message">
+            <div class="message__box"></div>
+        </div>    
+
+        <footer class="footer">
+            <div class="footer__textBox">
+                <p class="footer__copy">Copyright © 2022 Crypto.com</p>
+                <a class="footer__autor" href="#" target="_blank">author: michail gorbunov</a>
+            </div>
+        </footer>
     </div>
   
 </body>

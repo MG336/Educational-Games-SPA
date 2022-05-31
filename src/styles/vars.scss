@@ -1,11 +1,27 @@
 // Colors
-$color1:#A11D4C;
-$color2:#003084;
+$color1:#6120C9;
+$color2:#6120C9;
 $color3:#00BBFE;
 $color5:#6BB013;
 $color6:#FF7A00;
 $color7:#FCF700;
 $color8:#EEFCFF;
+
+$gradient1: linear-gradient(0deg, #6120C9 0%, #00BBFF 100%);
+
+@mixin gradient(){
+
+}
+
+ @mixin navLink(){
+     color: $color8;
+     font-size: 20px;
+     font-weight: 700;
+     text-transform: uppercase;
+     cursor: pointer;
+}
+     
+
 
 @mixin frutAndVeg {
     display: grid;
