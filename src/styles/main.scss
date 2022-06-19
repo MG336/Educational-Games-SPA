@@ -1,8 +1,17 @@
 // @import 'fonts.scss';
 @import 'global.scss';
 @import 'vars.scss';
-@import 'fonts';
+@import 'fonts.scss';
 @import 'reset.scss';
+// @import 'normalize.css';
+
+html {
+    scroll-behavior: smooth;
+    
+  }
+body{
+    font-family: 'Inter';
+}
 .main {
     background: $gradient1;
     &__game{
@@ -64,15 +73,43 @@
         background:$gradient1;
         width: 100%;
         height: 100vh;
-        display: flex;
         flex-direction: column;
         align-items: center;
-        padding-top: 200px;
+        padding-top: 10vh;
         z-index: 3;
         gap: 40px;
         overflow: hidden;
-        display: none;
+        // visibility: visible;
+        right: 100vh;
+        opacity: 0;
+        // transition: right .7s ease;
+        transition-property: right, opacity;
+        transition-duration: .7s;
+        transition-timing-function: ease;
+        // transition: opacity .7s ease;
+        display: flex;
     }
+    &__overlay--show{
+        // visibility: visible;
+        right: 0;
+        opacity: 1;
+    }   
+    
+    &__overlay--hide{
+        transition-duration: .5s;
+        right: 0;
+        opacity: 0;
+    } 
+
+    @keyframes navAnimation{
+        from {
+            right: 0;
+        }
+        to{
+            right: 100vh;
+        }
+    }    
+
     &__title{
         font-size: 40px;
         font-weight: 700;
@@ -89,9 +126,7 @@
         text-decoration: none;
         
     }
-    &__overlay--show{
-        display: flex;
-    }
+  
     &__items{
         display: flex;
         flex-direction: column;
@@ -109,7 +144,7 @@
     }
     &__line{
         width: 50px;
-        background-color: $color8;
+        color:$color8;
     }
 }
 .header{
@@ -498,6 +533,7 @@
         font-weight: 400;
         opacity: .6;
         gap: 4px;
+        padding: 8px;
     }
     &__autor{
         text-decoration: none;
@@ -507,6 +543,11 @@
     &__copy{
         font-size: 16px;
         color: $color8;
+        text-align: center;
+        
+    }
+    &__link{
+        color: inherit;
     }
 
 }
