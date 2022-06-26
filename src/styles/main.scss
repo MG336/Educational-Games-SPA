@@ -1,76 +1,86 @@
-// @import 'fonts.scss';
 @import 'global.scss';
 @import 'vars.scss';
 @import 'fonts.scss';
 @import 'reset.scss';
-// @import 'normalize.css';
 
 html {
     scroll-behavior: smooth;
-    
-  }
-body{
+}
+
+
+body {
     font-family: 'Inter';
 }
+
 .main {
     background: $gradient1;
-    &__game{
+
+    &__game {
         margin: 0 auto;
     }
 }
+
 .wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100%;
 }
 
-.noscroll{
+.noscroll {
     overflow: hidden;
 }
 
-.nav{
+.nav {
     background-color: $color1;
     display: none;
-    &__items{
+
+    &__items {
         display: flex;
         gap: 32px;
-        
-        
+
+
     }
+
     &__con {
         display: flex;
         justify-content: space-between;
         align-items: center;
         height: 116px;
         padding: 24px !important;
-        
+
     }
-    &__link{
+
+    &__link {
         @include navLink();
-        &:hover{
+
+        &:hover {
             opacity: .7;
         }
-        &--donate{
+
+        &--donate {
             color: $color7;
         }
     }
 }
-        
-        
-    
-.header-nav{
+
+
+
+.header-nav {
     background-color: $color2;
+
     &__con {
         text-align: end;
         padding: 8px;
     }
+
     &__icon {
         cursor: pointer;
         fill: white;
     }
+
     &__overlay {
         position: absolute;
-        background:$gradient1;
+        background: $gradient1;
         width: 100%;
         height: 100vh;
         flex-direction: column;
@@ -89,94 +99,94 @@ body{
         // transition: opacity .7s ease;
         display: flex;
     }
-    &__overlay--show{
-        // visibility: visible;
+
+    &__overlay--show {
         right: 0;
         opacity: 1;
-    }   
-    
-    &__overlay--hide{
+    }
+
+    &__overlay--hide {
         transition-duration: .5s;
         right: 0;
         opacity: 0;
-    } 
+    }
 
-    @keyframes navAnimation{
+    @keyframes navAnimation {
         from {
             right: 0;
         }
-        to{
+
+        to {
             right: 100vh;
         }
-    }    
+    }
 
-    &__title{
+    &__title {
         font-size: 40px;
         font-weight: 700;
         text-transform: uppercase;
         color: $color8;
         opacity: .5;
     }
-        
-    &__donate{
+
+    &__donate {
         font-size: 24px;
         font-weight: 700;
         text-transform: uppercase;
         color: $color7;
         text-decoration: none;
-        
+
     }
-  
-    &__items{
+
+    &__items {
         display: flex;
         flex-direction: column;
         gap: 32px;
         margin-top: 20px;
 
     }
-    &__link{
+
+    &__link {
         @include navLink();
     }
-    &__item{
+
+    &__item {
         font-size: 32px;
         text-align: center;
         cursor: pointer;
     }
-    &__line{
+
+    &__line {
         width: 50px;
-        color:$color8;
+        color: $color8;
     }
 }
-.header{
+
+.header {
     padding: 16px;
     height: 640px;
     background: no-repeat url('../images/bg/bg01.jpg');
     background-size: cover;
-    // background-origin: content-box;
-    // background-image: url('../images/bg/bg01.jpg');
-    // background-position: -45% 0;
-    
-    
-    &__nav{
+
+    &__nav {
         height: 48px;
         background-color: $color2;
         display: flex;
         justify-content: flex-end;
         padding: 0 16px;
     }
-        
-    &__bg{
-        
-    }
-    &__icon{
+
+    &__icon {
         fill: white;
     }
-    &__textBox{
+
+    &__textBox {
         padding: 24px 16px;
         border-radius: 20px;
         background-color: $color1;
     }
-    &__title{
+
+    &__title {
         font-size: 37px;
         font-weight: 700;
         margin: 0;
@@ -186,14 +196,16 @@ body{
         text-shadow: 0px 2.65137px 2.65137px rgba(0, 0, 0, 0.39);
         margin-bottom: 16px;
     }
-    &__subtitle{
+
+    &__subtitle {
         font-weight: 400;
         font-size: 26px;
         line-height: 98.52%;
         text-transform: uppercase;
         color: $color8;
     }
-    &__con{
+
+    &__con {
         display: flex;
         height: 100%;
         align-items: center;
@@ -204,7 +216,7 @@ body{
 .game {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap:16px;
+    gap: 16px;
     position: relative;
     max-width: 1100px;
     font-family: 'Inter';
@@ -212,14 +224,15 @@ body{
     background-color: $color8;
     padding: 40px 16px;
 
-    &__title{
+    &__title {
         grid-column: 1/3;
         font-size: 40px;
         margin: 0;
         margin-bottom: 32px;
         color: $color1;
     }
-    &__task{
+
+    &__task {
         grid-column: 1/3;
         background-color: #FCF700;
         // height: 214px;
@@ -231,21 +244,25 @@ body{
         color: $color2;
 
     }
-    &__boxTitle{
-        font-size: 20px; 
+
+    &__boxTitle {
+        font-size: 20px;
         font-weight: 700;
         text-transform: uppercase;
         margin-bottom: 50px;
-        &--color1{
+
+        &--color1 {
             color: $color6;
         }
-        &--color2{
+
+        &--color2 {
             color: $color5;
         }
     }
-    &__modal{
+
+    &__modal {
         position: fixed;
-        background-color: rgb(0, 0, 0,0.4);
+        background-color: rgb(0, 0, 0, 0.4);
         width: 100%;
         height: 100%;
         display: none;
@@ -253,19 +270,20 @@ body{
         left: 0;
         z-index: 1;
         overflow: hidden;
-        
+
     }
-    &__modal--show{
+
+    &__modal--show {
         display: block;
     }
-    
-    &__modalContant{
+
+    &__modalContant {
         width: 70vw;
         top: 30vh;
         margin: 0 auto;
         position: relative;
         z-index: 2;
-        display: flex; 
+        display: flex;
         background-color: $color1;
         justify-content: center;
         align-items: center;
@@ -276,16 +294,16 @@ body{
         color: $color8;
     }
 
-    &__modalText{
+    &__modalText {
         margin: 0 auto;
         font-size: 20px;
         text-transform: uppercase;
-        background-color:$color1;
+        background-color: $color1;
         text-align: center;
-    }   
+    }
 
 
-    &__modalCloseIcon{
+    &__modalCloseIcon {
         cursor: pointer;
         float: right;
         padding: 4px;
@@ -293,64 +311,68 @@ body{
         top: 4px;
         right: 4px;
         z-index: 2;
-        // fill: rgb(255, 255, 255,0.4);
-        // fill: rgb(255, 255, 255, 0.4);
-        
-    }
- 
-        
-    &__fruits{
-        @include frutAndVeg();
-        border-color:$color6;
     }
 
- 
 
-    &__vegetables{
+    &__fruits {
         @include frutAndVeg();
-        border-color:$color5;
+        border-color: $color6;
     }
-        
-    &__images{
+
+
+
+    &__vegetables {
+        @include frutAndVeg();
+        border-color: $color5;
+    }
+
+    &__images {
         display: grid;
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: repeat(3, 1fr);
 
         grid-template-rows: 1fr 1fr 1fr;
         align-items: center;
         justify-items: center;
-        
+
         justify-content: center;
         align-content: center;
 
         grid-template-rows: auto auto;
         gap: 16px;
-        border: 4px solid $color1; 
+        border: 4px solid $color1;
         border-radius: 40px;
         grid-column: 1/3;
-        
-        padding:40px 16px;
-        
+
+        padding: 40px 16px;
+
     }
-    &__imgBox{
-        &--position{
-            position:absolute;
-        } 
+
+    &__imgBox {
+        &--position {
+            position: absolute;
+        }
+
         background: none;
     }
-    &__img{
-        width:100%;
+
+    &__img {
+        width: 100%;
         background: inherit;
     }
-    &__glow{
+
+    &__glow {
         box-shadow: inset 0px 4px 30px -9px $color7;
     }
-    &__btn{
+
+    &__btn {
         margin-top: 16px;
         cursor: pointer;
-        &--l{
+
+        &--l {
             color: $color8;
         }
-        &--r{
+
+        &--r {
             color: $color3;
         }
     }
@@ -360,14 +382,16 @@ body{
     grid-template-columns: 1fr;
     display: grid;
     gap: 0;
-    grid-column-gap:0;
-    &__con{
-       display: flex;
-       flex-direction: column;
-    //    justify-self: center;
-       gap: 32px;
+    grid-column-gap: 0;
+
+    &__con {
+        display: flex;
+        flex-direction: column;
+        //    justify-self: center;
+        gap: 32px;
     }
-    &__answer{
+
+    &__answer {
         padding: 16px;
         text-align: center;
         font-size: 80px;
@@ -379,8 +403,9 @@ body{
         border: 4px solid $color1;
 
     }
-    &__box{
-        grid-template-columns: repeat(4,1fr);
+
+    &__box {
+        grid-template-columns: repeat(4, 1fr);
         grid-template-rows: 1fr 1fr;
         display: flex;
         justify-content: center;
@@ -393,61 +418,69 @@ body{
 
 
     }
-    &__modalContant{
+
+    &__modalContant {
         background-color: white;
         box-shadow: none;
     }
-    &__resultIcons{
+
+    &__resultIcons {
         width: 150px;
         // box-shadow: 0px 5px 11px 6px rgba(0, 0, 0, 1);
     }
-    &__btn{
+
+    &__btn {
         margin-top: 0;
         cursor: pointer;
     }
-    &__operations{
+
+    &__operations {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap:32px;
+        gap: 32px;
     }
-    &__mathSimvols{
+
+    &__mathSimvols {
         width: 70px;
         height: 70px;
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
-        
+
     }
-    &__simvolMinus{
+
+    &__simvolMinus {
         background-image: url(../images/icons/minus.svg);
     }
-    &__simvolPlus{
+
+    &__simvolPlus {
         background-image: url(../images/icons/plus.svg);
     }
-    &__boxLeft{
-        flex-wrap: wrap;
-        display: flex;
-        justify-content: center;
-        gap:8px;
-    }
-        
 
-    &__boxRight{
+    &__boxLeft {
         flex-wrap: wrap;
         display: flex;
         justify-content: center;
-        gap:8px;
+        gap: 8px;
+    }
+
+
+    &__boxRight {
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
     }
 }
 
-.imgApple{
+.imgApple {
     width: 70px;
-}      
-        
-.message{
+}
+
+.message {
     position: fixed;
-    background-color: rgb(0, 0, 0,0.4);
+    background-color: rgb(0, 0, 0, 0.4);
     width: 100%;
     height: 100%;
     display: flex;
@@ -459,11 +492,11 @@ body{
     align-items: center;
     visibility: hidden;
 
-    &--show{
-        visibility:visible;
+    &--show {
+        visibility: visible;
     }
-        
-    &__box{
+
+    &__box {
         width: 200px;
         height: 200px;
         border-radius: 20px;
@@ -481,36 +514,23 @@ body{
         transition-property: opacity, transform;
         transition-duration: .6s;
         transform: scale(0);
-        transition-timing-function: cubic-bezier(.17,.67,0,1.13);
+        transition-timing-function: cubic-bezier(.17, .67, 0, 1.13);
 
-        &--animationStart{
+        &--animationStart {
             opacity: 1;
             transition-duration: 1.4s;
             transform: scale(1);
-            
+
         }
     }
 
-
-      
-    // &__animation{
-    //     animation-name: animationOpacity2;
-    //     animation-duration: .7s;
-    //     animation-timing-function: cubic-bezier(0,1.51,.58,1.27) ;
-    //     animation-iteration-count: 1;
-    //     animation-play-state: running;
-    //     opacity: 1;
-    // }
-
-    
-    
-    &__box--reject{
+    &__box--reject {
         border-color: $color6;
         background-image: url("../images/icons/cancel.svg");
     }
-       
-        
-    &__box--approved{
+
+
+    &__box--approved {
         border-color: $color5;
         background-image: url("../images/icons/done.svg");
     }
@@ -522,7 +542,8 @@ body{
     height: 164px;
     display: flex;
     justify-content: center;
-    &__textBox{
+
+    &__textBox {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -535,35 +556,39 @@ body{
         gap: 4px;
         padding: 8px;
     }
-    &__autor{
+
+    &__autor {
         text-decoration: none;
         font-size: 20px;
         color: $color8;
     }
-    &__copy{
+
+    &__copy {
         font-size: 16px;
         color: $color8;
         text-align: center;
-        
+
     }
-    &__link{
+
+    &__link {
         color: inherit;
     }
 
 }
 
 
-@media (min-width: 767px){
+@media (min-width: 767px) {
     .nav {
         display: block;
-        &__con{
 
-        }
+        &__con {}
     }
-    .header-nav{
+
+    .header-nav {
         display: none;
     }
-    .container{
+
+    .container {
         max-width: 1100px;
         margin: 0 auto;
         padding: 0;
@@ -573,86 +598,99 @@ body{
         height: 100vh;
         justify-content: flex-start;
         justify-items: flex-start;
-        &__textBox{
+
+        &__textBox {
             width: 763px;
             padding: 56px;
             margin-top: 0;
-          
+
 
         }
-        &__title{
+
+        &__title {
             font-size: 85px;
         }
-        &__con{
+
+        &__con {
             display: flex;
             height: 100%;
 
             align-items: center;
         }
-        &__subtitle{
+
+        &__subtitle {
             font-size: 62px;
         }
     }
 
-    .main{
-        &__game{
+    .main {
+        &__game {
             margin: 56px auto 96px;
         }
     }
 
-    .game{
-        padding:  80px ;
+    .game {
+        padding: 80px;
         border-radius: 47px;
         box-shadow: 0px 4px 80px rgba(0, 0, 0, 0.25);
         gap: 40px;
-        &__images{
-            
-            grid-template-columns: repeat(6,1fr);
+
+        &__images {
+
+            grid-template-columns: repeat(6, 1fr);
             grid-template-rows: repeat (1fr 1fr);
             justify-items: center;
         }
-        &__btn{
+
+        &__btn {
             margin-top: 72px;
         }
-        &__boxTitle{
+
+        &__boxTitle {
             font-size: 40px;
         }
-        &__task{
+
+        &__task {
             padding: 48px;
         }
-        &__modalContant{
+
+        &__modalContant {
             max-width: 500px;
         }
-        &__title{
+
+        &__title {
             font-size: 65px;
         }
     }
-    .game2{
-        grid-column-gap:0;
-        &__answer{
+
+    .game2 {
+        grid-column-gap: 0;
+
+        &__answer {
             padding: 32px;
         }
-        &__box{
+
+        &__box {
             padding-left: 160px;
             padding-right: 160px;
         }
-        &__operations{
+
+        &__operations {
             display: grid;
             padding: 24px 24px;
             grid-template-columns: 1fr .3fr 1fr;
             grid-template-rows: 1fr;
             justify-items: center;
         }
-        &__btn{
+
+        &__btn {
             width: 40%;
             align-self: flex-end;
         }
     }
-    .imgApple{
+
+    .imgApple {
         width: auto;
-    }  
-            
+    }
+
 }
-
-
-      

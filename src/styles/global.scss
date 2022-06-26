@@ -1,4 +1,5 @@
 @import 'vars.scss';
+
 body {
     background: rgb(178, 178, 178);
     margin: 0;
@@ -16,9 +17,10 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 50px;
-    &:hover{
+
+    &:hover {
         opacity: .8;
-       
+
     }
 
     &--border {
@@ -28,17 +30,17 @@ body {
     }
 
 }
-    
 
-.container{
+
+.container {
     // padding: 16px;
     margin: 0 auto;
     max-width: 1100px;
 }
 
-@media (min-width: 767px){
-    .btn{
+@media (min-width: 767px) {
+    .btn {
         padding: 24px;
         font-size: 32px;
-    } 
+    }
 }

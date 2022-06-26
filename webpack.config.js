@@ -12,12 +12,12 @@ const devServer = (isDev) => !isDev ? {} : {
 // {develop}
 module.exports = () => ({
   // mode: develop ? 'development' : 'production',
-  mode: 'development',
+  mode: 'production',
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist2'),
     filename: 'bundle.js',
-    assetModuleFilename: 'images/[hash][ext][query]',
+    assetModuleFilename: 'images/[hash:7][ext][query]',
     // clean: true,
   },
   plugins: [
@@ -27,15 +27,23 @@ module.exports = () => ({
       }),
       new MiniCssExtractPlugin({
           filename: './styles/main.css'
-      })
+      }),
+    
   ],
+  
   module: {
       rules: [
           {
               test: /\.(?:ico|png|jpg|jpeg|svg)$/i,
               type: 'asset/resource'
           },
-         
+          {
+            test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+            type: 'asset/resource',
+            generator: {
+              filename: 'fonts/[hash:7][ext][query]'
+            }
+          },
           {
               test: /\.css$/i,
               use: [
