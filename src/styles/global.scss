@@ -17,9 +17,11 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 50px;
-
+    &[disabled]{
+        background-color: rgb(174, 174, 174);
+    }
     &:hover {
-        opacity: .8;
+        // opacity: .8;
 
     }
 

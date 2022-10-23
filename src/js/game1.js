@@ -34,7 +34,7 @@ function sorting(){
         </div>
         <div class="game__images">
         </div>
-        <button class="game__btn game__btn--l btn" id="gameBtn" type="button">Сheck</button>
+        <button class="game__btn game__btn--l btn" id="gameBtn" type="button" disabled>Сheck</button>
         <button class="game__btn game__btn--r btn btn--border" id="gameBtnReset" type="button">Reset</button>
 
         <div class="game__modal">
@@ -233,9 +233,27 @@ function sorting(){
                 message.classList.remove('message--show');
             },1000); 
         }
-
+        function gameImagesCheck(){
+           console.log (game__images)
+           let observer = new MutationObserver(()=>{
+                console.log(121111)
+                if(game__images.children.length === 0){
+                    btn.removeAttribute('disabled')
+                }else {  
+                    btn.hasAttribute("disabled") || btn.setAttribute("disabled","true")
+                } 
+                
+           });
+           observer.observe(game__images, {
+            childList: true
+           })
+           
+        }
+        gameImagesCheck()
         function showMessage(value){
-            if(game__images.children.length != 0) return
+            if(game__images.children.length != 0){
+                return
+            } 
             
             if (fruit.querySelector('[data-type=vegetables]')){
                 message.children[0].classList.add('message__box--reject');
